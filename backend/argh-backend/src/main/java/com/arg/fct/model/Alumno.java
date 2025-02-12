@@ -15,7 +15,6 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.Data;
 
-@Data
 @Entity
 public class Alumno {
 
@@ -38,4 +37,70 @@ public class Alumno {
 
 	@OneToMany(mappedBy = "alumno")
 	private List<RegistroPracticas> registrosPracticas;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getNombreCompleto() {
+		return nombreCompleto;
+	}
+
+	public void setNombreCompleto(String nombreCompleto) {
+		this.nombreCompleto = nombreCompleto;
+	}
+
+	public Ciclo getCiclo() {
+		return ciclo;
+	}
+
+	public void setCiclo(Ciclo ciclo) {
+		this.ciclo = ciclo;
+	}
+
+	public Evaluacion getEvaluacion() {
+		return evaluacion;
+	}
+
+	public void setEvaluacion(Evaluacion evaluacion) {
+		this.evaluacion = evaluacion;
+	}
+
+	public int getAño() {
+		return año;
+	}
+
+	public void setAño(int año) {
+		this.año = año;
+	}
+
+	public Tutor getTutor() {
+		return tutor;
+	}
+
+	public void setTutor(Tutor tutor) {
+		this.tutor = tutor;
+	}
+
+	public Empresa getEmpresa() {
+		return empresa;
+	}
+
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
+	}
+
+	public List<RegistroPracticas> getRegistrosPracticas() {
+		return registrosPracticas;
+	}
+
+	public void setRegistrosPracticas(List<RegistroPracticas> registrosPracticas) {
+		this.registrosPracticas = registrosPracticas;
+	}
+	
+	
 }
