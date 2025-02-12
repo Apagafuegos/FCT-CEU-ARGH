@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="589.0" style="-fx-background-color: #4F4F4F; -fx-border-color: cyan; -fx-border-width: 5px; -fx-border-radius: 3px; -fx-effect: dropshadow(gaussian, #00FFFF, 15, 0.5, 0, 0), dropshadow(gaussian, cyan, 80, 0.6, 0, 0);" styleClass="/resources/estilos/estiloUnoBienvenida.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectoFront.gui.BienvenidaController">
+   <children>
+      <AnchorPane layoutX="34.0" layoutY="20.0" prefHeight="447.0" prefWidth="532.0" style="-fx-background-color: #2B2B2B; -fx-border-color: red; -fx-border-width: 5px; -fx-border-radius: 3px; -fx-effect: dropshadow(gaussian, #FF0000, 15, 0.5, 0, 0), dropshadow(gaussian, red, 80, 0.6, 0, 0);;">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="191.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/ARGH-Photoroom.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="209.0" layoutY="248.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="114.0" text="Boton Prueba" />
+         </children>
+      </AnchorPane>
+   </children>
+   <cursor>
+      <Cursor fx:constant="DEFAULT" />
+   </cursor>
+</AnchorPane>

@@ -1,0 +1,88 @@
+package proyectoFront.gui;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import javafx.application.Application;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+
+	public class App extends Application{
+
+		@Override
+		public void start(Stage primaryStage) throws Exception {
+			AppController controller = new AppController(primaryStage);
+			
+			controller.changeScene(AppController.FXML_INICIO);
+			
+			primaryStage.setResizable(false);
+			primaryStage.initStyle(javafx.stage.StageStyle.TRANSPARENT);
+			primaryStage.setWidth(600);
+			primaryStage.setHeight(500);
+			primaryStage.show();
+		}
+		
+		@FXML
+		private AnchorPane myAnchorPane;
+
+		public void initialize() {
+		    // Crear una forma redondeada para el AnchorPane
+		    Rectangle rect = new Rectangle(myAnchorPane.getWidth(), myAnchorPane.getHeight());
+		    rect.setArcWidth(30); // Ajusta el radio de las esquinas
+		    rect.setArcHeight(30);
+
+		    // Aplica la forma al AnchorPane para que se recorten las esquinas
+		    myAnchorPane.setShape(rect);
+		}
+		
+		public static void main(String[] args) {
+			launch();
+		}
+
+	
+
+	public Parent loadScene(String fxml) {
+		try {
+			FXMLLoader loader = new FXMLLoader(App.class.getResource(fxml));
+			Scene scene = new Scene(loader.load());
+			return scene.getRoot();
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+
+	}
+
+	public void changeScene(String fxml) {
+		try {
+			FXMLLoader loader = new FXMLLoader(App.class.getResource(fxml));
+			Scene scene = new Scene(loader.load());
+			primaryStage.setScene(scene);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void addParam(String key, Object param) {
+		Map<String, Object> mapa = (Map<String, Object>) primaryStage.getUserData();
+		if (mapa == null) {
+			mapa = new HashMap<String, Object>();
+			primaryStage.setUserData(mapa);
+		}
+		mapa.put(key, param);
+	}
+
+	public Object getParam(String key) {
+		Map<String, Object> mapa = (Map<String, Object>) primaryStage.getUserData();
+		return mapa.get(key);
+	}
+
+}
+
+

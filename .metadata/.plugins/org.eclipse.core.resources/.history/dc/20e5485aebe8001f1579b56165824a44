@@ -1,0 +1,34 @@
+package proyectoFront;
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import proyectoFront.gui.AppController;
+
+public class App extends Application{
+
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		AppController controller = new AppController(primaryStage);
+		
+		controller.changeScene(AppController.FXML_INICIO);
+        Scene scene = new Scene(controller.getRoot()); // Obtén la raíz del controlador
+
+        // Cargar el archivo CSS
+        scene.getStylesheets().add(getClass().getResource("/estilos/nombreDelArchivo.css").toExternalForm());
+
+        // Configuración del escenario (window)
+        primaryStage.setScene(scene);					
+		primaryStage.setResizable(false);
+		primaryStage.initStyle(javafx.stage.StageStyle.TRANSPARENT);
+		primaryStage.setWidth(600);
+		primaryStage.setHeight(500);
+		primaryStage.show();
+	}
+	
+	
+	public static void main(String[] args) {
+		launch();
+	}
+
+}

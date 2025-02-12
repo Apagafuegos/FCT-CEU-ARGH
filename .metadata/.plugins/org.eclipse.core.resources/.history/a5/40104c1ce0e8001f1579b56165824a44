@@ -1,0 +1,17 @@
+package proyectoFront.gui;
+
+import javafx.stage.Stage;
+
+public class AppController {
+	
+	protected static Stage primaryStage;
+
+	public AppController() {
+	}
+	
+	public AppController(Stage stage) {
+	}
+	
+	
+
+}
