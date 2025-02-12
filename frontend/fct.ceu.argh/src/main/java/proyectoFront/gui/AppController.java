@@ -13,6 +13,8 @@ import proyectoFront.App;
 public class AppController {
 	
 	public static final String FXML_INICIO = "/app/inicio.fxml";
+	public static final String FXML_LOGIN = "/app/login.fxml";
+	public static final String FXML_MENU = "/app/menu.fxml";
 	
 	protected static Stage primaryStage;
 	
