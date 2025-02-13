@@ -14,8 +14,8 @@ public class TutorLaboral {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	
-	@Column(name="nombre")
+
+	@Column(name = "nombre")
 	private String nombreCompleto;
 	private String email;
 	private int telefono;
@@ -62,7 +62,6 @@ public class TutorLaboral {
 
 	public void setEmpresa(Empresa empresa) {
 		this.empresa = empresa;
-	}	
-=======
+	}
 
 }

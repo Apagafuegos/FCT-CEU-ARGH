@@ -14,8 +14,8 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	
-	@Column(name="nombre")
+
+	@Column(name = "nombre")
 	private String nombreUsuario;
 	private String contraseña;
 
