@@ -32,6 +32,39 @@ public class RegistroPracticas {
 	public Integer getId() {
 		return id;
 	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public Alumno getAlumno() {
+		return alumno;
+	}
+	public void setAlumno(Alumno alumno) {
+		this.alumno = alumno;
+	}
+	public Fecha getFecha() {
+		return fecha;
+	}
+	public void setFecha(Fecha fecha) {
+		this.fecha = fecha;
+	}
+	public int getCantidadHoras() {
+		return cantidadHoras;
+	}
+	public void setCantidadHoras(int cantidadHoras) {
+		this.cantidadHoras = cantidadHoras;
+	}
+	public String getDescripcion() {
+		return descripcion;
+	}
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	
+=======
+
+	public Integer getId() {
+		return id;
+	}
 
 	public void setId(Integer id) {
 		this.id = id;

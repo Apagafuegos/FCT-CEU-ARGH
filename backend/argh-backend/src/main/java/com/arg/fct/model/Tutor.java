@@ -19,6 +19,27 @@ public class Tutor {
 	private String nombreCompleto;
 
 	private boolean activo;
+  
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getNombreCompleto() {
+		return nombreCompleto;
+	}
+	public void setNombreCompleto(String nombreCompleto) {
+		this.nombreCompleto = nombreCompleto;
+	}
+	public boolean isActivo() {
+		return activo;
+	}
+	public void setActivo(boolean activo) {
+		this.activo = activo;
+	}
+	
+=======
 
 	public Integer getId() {
 		return id;
@@ -43,5 +64,4 @@ public class Tutor {
 	public void setActivo(boolean activo) {
 		this.activo = activo;
 	}
-
 }
