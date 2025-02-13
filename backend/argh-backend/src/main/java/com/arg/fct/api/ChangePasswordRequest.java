@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 public class ChangePasswordRequest {
-	@NotBlank
+
 	@NotNull
 	private Integer userId;
 
@@ -41,6 +41,12 @@ public class ChangePasswordRequest {
 
 	public void setNewPassword(String newPassword) {
 		this.newPassword = newPassword;
+	}
+
+	@Override
+	public String toString() {
+		return "ChangePasswordRequest [userId=" + userId + ", oldPassword=" + oldPassword + ", newPassword="
+				+ newPassword + "]";
 	}
 
 }

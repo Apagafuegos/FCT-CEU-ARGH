@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,8 +41,9 @@ public class FctApiService {
 
 	@PutMapping
 	@Operation(summary = "Cambio de contraseña", description = "Método que devuelve un request cambiando la contraseña del usuario que lo solicite")
-	public Usuario changePassword(ChangePasswordRequest request)
+	public Usuario changePassword(@Valid @RequestBody ChangePasswordRequest request)
 			throws UsuarioNotFoundException, IncorrectPasswordException, UsuariosServiceException {
+		System.out.println(request);
 		return service.changePassword(request.getUserId(), request.getOldPassword(), request.getNewPassword());
 	}
 
@@ -51,7 +53,7 @@ public class FctApiService {
 		return service.getRegistrosPracticas(id);
 	}
 
-	@GetMapping("/detail/alumno/{id}")
+	@GetMapping("/detail/alumno/{idUser}")
 	public Alumno getDatosAlumno(@PathVariable @Valid Integer idUser)
 			throws UsuariosServiceException, UserNotAuthorisedException {
 		return service.getDatosAlumno(idUser);

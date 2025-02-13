@@ -18,10 +18,6 @@ public class RegistroPracticas {
 	private Integer id;
 
 	@ManyToOne
-	@JoinColumn(name = "id_alumno")
-	private Alumno alumno;
-
-	@ManyToOne
 	@JoinColumn(name = "id_fecha")
 	private Fecha fecha;
 
@@ -35,14 +31,6 @@ public class RegistroPracticas {
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public Alumno getAlumno() {
-		return alumno;
-	}
-
-	public void setAlumno(Alumno alumno) {
-		this.alumno = alumno;
 	}
 
 	public Fecha getFecha() {
