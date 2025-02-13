@@ -18,15 +18,26 @@ public class MenuController extends AppController{
 
     @FXML
     private MenuItem contraPanel;
+    
+    @FXML
+    private MenuItem altaRegistroPanel;
 
     @FXML
     private MenuItem informacionPanel;
 
     @FXML
     private BorderPane panel;
+    @FXML
+    private MenuItem cerrarSesionPanel;
 
     @FXML
     private MenuItem registroPanel;
+    
+
+    @FXML
+    void cambiarRegistrosAlta(ActionEvent event) {
+    	panel.setCenter(loadScene(FXML_ALTA_REGISTROS));
+    }
 
     @FXML
     void cambiarInformacion(ActionEvent event) {
@@ -41,6 +52,13 @@ public class MenuController extends AppController{
     void cambiarPaginaContra(ActionEvent event) {
     	
     	panel.setCenter(loadScene(FXML_RESTABLECER_CONTRA));
+    	
+    	
+    }
+    
+    @FXML
+    void cerrarSesion(ActionEvent event) {
+    	changeScene(FXML_INICIO);
     }
     @FXML
     void cerrarAplicacion(ActionEvent event) {

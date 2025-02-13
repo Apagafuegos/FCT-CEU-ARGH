@@ -14,11 +14,12 @@
               <MenuItem fx:id="informacionPanel" mnemonicParsing="false" onAction="#cambiarInformacion" text="Información" />
                   <MenuItem fx:id="registroPanel" mnemonicParsing="false" onAction="#cambiarRegistros" text="Registro" />
                   <MenuItem fx:id="contraPanel" mnemonicParsing="false" onAction="#cambiarPaginaContra" text="Cambiar Contraseña" />
+                  <MenuItem fx:id="altaRegistroPanel" mnemonicParsing="false" onAction="#cambiarRegistrosAlta" text="Alta Registro" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Salir">
             <items>
-              <MenuItem mnemonicParsing="false" text="Cerrar Sesión" />
+              <MenuItem fx:id="cerrarSesionPanel" mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar Sesión" />
                   <MenuItem fx:id="cerrarApp" mnemonicParsing="false" onAction="#cerrarAplicacion" text="Cerrar Aplicación" />
             </items>
           </Menu>
