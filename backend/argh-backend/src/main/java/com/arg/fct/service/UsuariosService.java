@@ -1,13 +1,15 @@
 package com.arg.fct.service;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
+import com.arg.fct.model.Alumno;
+import com.arg.fct.model.RegistroPracticas;
 import com.arg.fct.model.Usuario;
 import com.arg.fct.repository.UsuariosRepository;
+import com.arg.fct.service.exceptions.UserNotAuthorisedException;
 import com.arg.fct.service.exceptions.UsuarioNotFoundException;
 import com.arg.fct.service.exceptions.UsuariosServiceException;
 
@@ -55,6 +57,40 @@ public class UsuariosService {
 		}
 
 	}
+
+	public Alumno getDatosAlumno(Integer idUser) throws UsuariosServiceException, UserNotAuthorisedException {
+		Usuario user = null;
+		try {
+			user = repo.findById(idUser).orElseThrow(() -> new UsuariosServiceException("Error con la BBDD"));
+		} catch (DataAccessException e) {
+			throw new UsuariosServiceException("Error con la BBDD", e);
+		}
+
+		if (user.getAlumno() == null) {
+			throw new UserNotAuthorisedException("Este usuario no es un alumno");
+		} else {
+			return user.getAlumno();
+		}
+	}
+
+	public List<RegistroPracticas> getRegistrosPracticas(Integer idUser)
+			throws UsuariosServiceException, UserNotAuthorisedException {
+
+		Usuario user = null;
+		try {
+			user = repo.findById(idUser).orElseThrow(() -> new UsuariosServiceException("Error con la BBDD"));
+		} catch (DataAccessException e) {
+			throw new UsuariosServiceException("Error con la BBDD", e);
+		}
+
+		if (user.getAlumno() == null) {
+			throw new UserNotAuthorisedException("Este usuario no registra estos datos");
+		} else {
+			return user.getAlumno().getRegistrosPracticas();
+		}
+	}
+
+	// Métodos de administrador
 
 	public List<Usuario> getUsers() throws UsuariosServiceException {
 		try {

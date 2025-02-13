@@ -9,6 +9,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -43,7 +44,7 @@ public class Alumno {
 	@JoinColumn(name = "id_empresa")
 	private Empresa empresa;
 
-	@OneToMany(mappedBy = "alumno")
+	@OneToMany(mappedBy = "alumno", fetch = FetchType.EAGER)
 	private List<RegistroPracticas> registrosPracticas;
 
 	public Integer getId() {

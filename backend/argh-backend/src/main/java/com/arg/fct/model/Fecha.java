@@ -18,6 +18,7 @@ public class Fecha {
 	@Column(name="id")
 	private String uuid;
 	private LocalDate fecha;
+	@Column(name="anio")
 	private int año;
 	private String evaluacion;
 

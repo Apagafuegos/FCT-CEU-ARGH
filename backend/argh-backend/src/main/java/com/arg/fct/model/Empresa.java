@@ -5,6 +5,7 @@ import java.util.List;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -19,11 +20,11 @@ public class Empresa {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	
-	@Column(name="nombre")
+
+	@Column(name = "nombre")
 	private String nombreEmpresa;
 
-	@OneToMany(mappedBy = "empresa")
+	@OneToMany(mappedBy = "empresa", fetch = FetchType.EAGER)
 	private List<Alumno> listaAlumnos;
 
 	private boolean activo;
