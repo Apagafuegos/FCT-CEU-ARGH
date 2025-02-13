@@ -18,7 +18,6 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
-=======
 @Entity
 public class Alumno {
 
@@ -110,7 +109,6 @@ public class Alumno {
 
 	public void setRegistrosPracticas(List<RegistroPracticas> registrosPracticas) {
 		this.registrosPracticas = registrosPracticas;
-	}	
-	
-=======
+	}
+
 }
