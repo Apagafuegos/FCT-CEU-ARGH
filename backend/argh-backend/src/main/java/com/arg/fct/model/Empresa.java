@@ -12,7 +12,6 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.Data;
 
-@Data
 @Entity
 public class Empresa {
 
@@ -26,5 +25,37 @@ public class Empresa {
 	private List<Alumno> listaAlumnos;
 
 	private boolean activo;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getNombreEmpresa() {
+		return nombreEmpresa;
+	}
+
+	public void setNombreEmpresa(String nombreEmpresa) {
+		this.nombreEmpresa = nombreEmpresa;
+	}
+
+	public List<Alumno> getListaAlumnos() {
+		return listaAlumnos;
+	}
+
+	public void setListaAlumnos(List<Alumno> listaAlumnos) {
+		this.listaAlumnos = listaAlumnos;
+	}
+
+	public boolean isActivo() {
+		return activo;
+	}
+
+	public void setActivo(boolean activo) {
+		this.activo = activo;
+	}
 
 }
