@@ -7,33 +7,40 @@ import jakarta.validation.constraints.Size;
 public class ChangePasswordRequest {
 	@NotBlank
 	@NotNull
-	private Long userId;
+	private Integer userId;
+
 	@NotNull
 	@Size(min = 8, max = 100)
 	@NotBlank(message = "La antigua contraseña es obligatoria")
 	private String oldPassword;
+
 	@NotNull
 	@Size(min = 8, max = 100)
 	@NotBlank(message = "La nueva contraseña es obligatoria")
 	private String newPassword;
-	public Long getUserId() {
+
+	public Integer getUserId() {
 		return userId;
 	}
-	public void setUserId(Long userId) {
+
+	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
+
 	public String getOldPassword() {
 		return oldPassword;
 	}
+
 	public void setOldPassword(String oldPassword) {
 		this.oldPassword = oldPassword;
 	}
+
 	public String getNewPassword() {
 		return newPassword;
 	}
+
 	public void setNewPassword(String newPassword) {
 		this.newPassword = newPassword;
 	}
-	
-	
+
 }
