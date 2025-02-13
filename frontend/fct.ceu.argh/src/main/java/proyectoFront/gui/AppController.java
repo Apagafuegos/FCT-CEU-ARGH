@@ -16,6 +16,8 @@ public class AppController {
 	public static final String FXML_LOGIN = "/app/login.fxml";
 	public static final String FXML_MENU = "/app/menu.fxml";
 	
+	public static final String FXML_INFO_ALUMNO = "/app/infoAlumno.fxml";
+	
 	protected static Stage primaryStage;
 	
 	public AppController() {
