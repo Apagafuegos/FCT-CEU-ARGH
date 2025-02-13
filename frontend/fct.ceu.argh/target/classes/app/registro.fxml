@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #B2D8FF;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectoFront.gui.RegistrosController">
+   <children>
+      <TableView layoutX="135.0" layoutY="20.0" prefHeight="360.0" prefWidth="330.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Fecha" />
+          <TableColumn prefWidth="75.0" text="Horas Registradas" />
+            <TableColumn prefWidth="75.0" text="Descripcion" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

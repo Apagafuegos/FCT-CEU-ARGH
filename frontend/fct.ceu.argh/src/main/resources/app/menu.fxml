@@ -7,16 +7,19 @@
 
 <BorderPane fx:id="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #B2D8FF;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectoFront.gui.MenuController">
    <top>
-      <MenuBar BorderPane.alignment="CENTER">
+      <MenuBar style="-fx-background-color: #ffb3a7;" BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu mnemonicParsing="false" text="Usuario">
             <items>
-              <MenuItem mnemonicParsing="false" text="Alumno" />
+              <MenuItem fx:id="informacionPanel" mnemonicParsing="false" onAction="#cambiarInformacion" text="Información" />
+                  <MenuItem fx:id="registroPanel" mnemonicParsing="false" onAction="#cambiarRegistros" text="Registro" />
+                  <MenuItem fx:id="contraPanel" mnemonicParsing="false" onAction="#cambiarPaginaContra" text="Cambiar Contraseña" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu mnemonicParsing="false" text="Salir">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+              <MenuItem mnemonicParsing="false" text="Cerrar Sesión" />
+                  <MenuItem fx:id="cerrarApp" mnemonicParsing="false" onAction="#cerrarAplicacion" text="Cerrar Aplicación" />
             </items>
           </Menu>
         </menus>

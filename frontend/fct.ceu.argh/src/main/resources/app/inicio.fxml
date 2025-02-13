@@ -17,12 +17,15 @@
                   <Image url="@../images/ARGH-Photoroom.png" />
                </image>
             </ImageView>
-            <Button fx:id="botonInicio" layoutX="209.0" layoutY="280.0" mnemonicParsing="false" onAction="#entrarLoggin" prefHeight="47.0" prefWidth="114.0" style="-fx-effect: dropshadow(gaussian, #FF0000, 15, 0.5, 0, 0), dropshadow(gaussian, red, 80, 0.6, 0, 0); -fx-background-color: black;" text="Boton Prueba" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="botonInicio" layoutX="209.0" layoutY="280.0" mnemonicParsing="false" onAction="#entrarLoggin" prefHeight="47.0" prefWidth="114.0" style="-fx-background-image: url(&quot;/images/enterButton.png&quot;); -fx-background-size: cover; -fx-background-radius: 50px;" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Arial Bold Italic" size="12.0" />
                </font>
             </Button>
-            <CheckBox fx:id="checkAlumno" layoutX="189.0" layoutY="362.0" mnemonicParsing="false" text="Afirmo ser alumno ARGH" textFill="WHITE" />
+            <CheckBox fx:id="checkAlumno" layoutX="169.0" layoutY="356.0" mnemonicParsing="false" text="Afirmo ser alumno ARGH" textFill="RED">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font></CheckBox>
          </children>
       </AnchorPane>
    </children>

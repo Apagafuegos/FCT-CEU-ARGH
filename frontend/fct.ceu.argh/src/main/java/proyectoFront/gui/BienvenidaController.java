@@ -14,7 +14,7 @@ public class BienvenidaController extends AppController{
     @FXML
     void entrarLoggin(ActionEvent event) {
     	if(checkAlumno.isSelected()) {
-    	changeScene(FXML_MENU);
+    	changeScene(FXML_LOGIN);
     	}
     }
 

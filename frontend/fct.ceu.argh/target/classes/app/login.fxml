@@ -15,18 +15,12 @@
       <TextField fx:id="textUser" layoutX="159.0" layoutY="147.0" promptText="Nombre Usuario" />
       <Text layoutX="82.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario" wrappingWidth="41.341796875" />
       <Text layoutX="82.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña" wrappingWidth="61.341796875" />
-      <ImageView fitHeight="269.0" fitWidth="262.0" layoutX="324.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/loginText.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="botonRestablecerContra" layoutX="373.0" layoutY="352.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="164.0" style="-fx-background-image: url(&quot;/images/loginButton.png&quot;); -fx-background-size: cover; -fx-background-repeat: no-repeat; -fx-border-width: 2; -fx-background-insets: 0; -fx-background-radius: 50px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0.5, 0, 0);" />
-      <ImageView fitHeight="201.0" fitWidth="98.0" layoutX="406.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
-         <image>
-            <Image url="@../images/flecha.png" />
-         </image>
-      </ImageView>
       <PasswordField fx:id="textContra" layoutX="159.0" layoutY="192.0" />
-      <Button layoutX="153.0" layoutY="266.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="84.0" style="-fx-background-image: url(&quot;/images/enterButton.png&quot;); -fx-background-size: cover; -fx-background-radius: 50px;" />
+      <Button fx:id="entrarUsuarioButton" layoutX="153.0" layoutY="266.0" mnemonicParsing="false" onAction="#cambiarInfoUsuario" prefHeight="39.0" prefWidth="84.0" style="-fx-background-image: url(&quot;/images/enterButton.png&quot;); -fx-background-size: cover; -fx-background-radius: 50px;" />
+      <ImageView fitHeight="260.0" fitWidth="292.0" layoutX="308.0" layoutY="231.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/ceuLogo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

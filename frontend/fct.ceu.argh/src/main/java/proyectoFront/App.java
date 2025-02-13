@@ -10,7 +10,7 @@ public class App extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		AppController controller = new AppController(primaryStage);
 		
-		controller.changeScene(AppController.FXML_INFO_ALUMNO);
+		controller.changeScene(AppController.FXML_INICIO);
 		
 		primaryStage.setResizable(false);
 		primaryStage.initStyle(javafx.stage.StageStyle.TRANSPARENT);
