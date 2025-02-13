@@ -3,6 +3,7 @@ package com.arg.fct.model;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,10 +19,11 @@ public class Empresa {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-
+	
+	@Column(name="nombre")
 	private String nombreEmpresa;
 
-	@OneToMany(mappedBy = "alumno")
+	@OneToMany(mappedBy = "empresa")
 	private List<Alumno> listaAlumnos;
 
 	private boolean activo;

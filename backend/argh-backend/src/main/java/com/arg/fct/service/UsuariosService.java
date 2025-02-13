@@ -37,4 +37,43 @@ public class UsuariosService {
 		}
 	}
 
+	public Usuario changePassword(Integer idUser, String oldPassword, String newPassword)
+			throws UsuarioNotFoundException, IncorrectPasswordException, UsuariosServiceException {
+
+		Usuario user;
+		try {
+			user = repo.findById(idUser)
+					.orElseThrow(() -> new UsuarioNotFoundException("No existe un usuario con ese ID"));
+		} catch (DataAccessException e) {
+			throw new UsuariosServiceException("Error con la BBDD", e);
+		}
+		if (user.getContraseña().equals(oldPassword)) {
+			user.setContraseña(newPassword);
+			return repo.save(user);
+		} else {
+			throw new IncorrectPasswordException("La contraseña introducida es incorrecta");
+		}
+
+	}
+
+	public List<Usuario> getUsers() throws UsuariosServiceException {
+		try {
+			return repo.findAll();
+		} catch (DataAccessException e) {
+			throw new UsuariosServiceException("Error con la BBDD", e);
+		}
+	}
+
+	public Usuario changeUserPassword(Integer idUser, String newPassword)
+			throws UsuarioNotFoundException, UsuariosServiceException {
+		try {
+			Usuario user = repo.findById(idUser)
+					.orElseThrow(() -> new UsuarioNotFoundException("No existe un usuario con ese ID"));
+			user.setContraseña(newPassword);
+			return repo.save(user);
+		} catch (DataAccessException e) {
+			throw new UsuariosServiceException("Error con la BBDD", e);
+		}
+	}
+
 }

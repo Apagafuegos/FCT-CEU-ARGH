@@ -1,19 +1,23 @@
 package com.arg.fct.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.Data;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "tutor_docente")
 public class Tutor {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
+	@Column(name = "nombre")
 	private String nombreCompleto;
+
 	private boolean activo;
 
 	public Integer getId() {

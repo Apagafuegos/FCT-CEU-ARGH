@@ -2,17 +2,20 @@ package com.arg.fct.model;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.Data;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name="fechas")
 public class Fecha {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="id")
 	private String uuid;
 	private LocalDate fecha;
 	private int año;

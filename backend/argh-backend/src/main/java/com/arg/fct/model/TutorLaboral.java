@@ -1,5 +1,6 @@
 package com.arg.fct.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,7 +15,8 @@ public class TutorLaboral {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-
+	
+	@Column(name="nombre")
 	private String nombreCompleto;
 	private String email;
 	private int telefono;
