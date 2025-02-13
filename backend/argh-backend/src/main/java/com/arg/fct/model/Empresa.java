@@ -2,15 +2,13 @@ package com.arg.fct.model;
 
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
-import lombok.Data;
 
 @Entity
 public class Empresa {
@@ -19,9 +17,10 @@ public class Empresa {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
+	@Column(name = "nombre")
 	private String nombreEmpresa;
 
-	@OneToMany(mappedBy = "alumno")
+	@OneToMany(mappedBy = "empresa", fetch = FetchType.EAGER)
 	private List<Alumno> listaAlumnos;
 
 	private boolean activo;
