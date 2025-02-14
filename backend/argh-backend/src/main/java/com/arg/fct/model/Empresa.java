@@ -1,14 +1,13 @@
 package com.arg.fct.model;
 
-import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Empresa {
@@ -18,10 +17,10 @@ public class Empresa {
 	private Integer id;
 
 	@Column(name = "nombre")
+	@NotNull
+	@NotBlank
+	@Size(min = 4, max = 50)
 	private String nombreEmpresa;
-
-	@OneToMany(mappedBy = "empresa", fetch = FetchType.EAGER)
-	private List<Alumno> listaAlumnos;
 
 	private boolean activo;
 
@@ -39,14 +38,6 @@ public class Empresa {
 
 	public void setNombreEmpresa(String nombreEmpresa) {
 		this.nombreEmpresa = nombreEmpresa;
-	}
-
-	public List<Alumno> getListaAlumnos() {
-		return listaAlumnos;
-	}
-
-	public void setListaAlumnos(List<Alumno> listaAlumnos) {
-		this.listaAlumnos = listaAlumnos;
 	}
 
 	public boolean isActivo() {
