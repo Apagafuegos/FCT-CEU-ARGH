@@ -111,10 +111,9 @@ public class UsuariosService {
 			throw new UserNotAuthorisedException("Este usuario no puede registrar estos datos");
 		else {
 			try {
-				Fecha fecha = fechaRepo.findOneByFecha(registro.getFecha().getFecha()).getFirst();
+				Fecha fecha = fechaRepo.findOneByFecha(registro.getFecha().getFecha()).orElseThrow(() -> new UsuariosServiceException());
 				registro.setFecha(fecha);
 				user.getAlumno().getRegistrosPracticas().add(registro);
-				System.out.println(user.getAlumno().getId());
 				repo.save(user);
 			} catch (DataAccessException e) {
 				throw new UsuariosServiceException("Error guardando el registro de prácticas", e);
