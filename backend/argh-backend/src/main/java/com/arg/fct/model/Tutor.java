@@ -15,7 +15,7 @@ import jakarta.validation.constraints.Size;
 public class Tutor {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	@Column(name = "nombre")

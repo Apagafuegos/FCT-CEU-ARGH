@@ -20,7 +20,7 @@ import jakarta.validation.constraints.Size;
 public class RegistroPracticas {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	@ManyToOne(cascade = CascadeType.MERGE, optional = false)
