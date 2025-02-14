@@ -1,0 +1,382 @@
+openapi: 3.1.0
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- description: Generated server url
+  url: http://localhost:8080
+paths:
+  /api/fct:
+    put:
+      description: Método que devuelve un request cambiando la contraseña del usuario
+        que lo solicite
+      operationId: changePassword
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangePasswordRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Usuario'
+          description: OK
+      security:
+      - Authorization: []
+      summary: Cambio de contraseña
+      tags:
+      - fct-api-service
+      x-content-type: application/json
+      x-accepts:
+      - '*/*'
+  /api/fct/registro/{idUser}:
+    post:
+      operationId: addRegistroPracticas
+      parameters:
+      - explode: false
+        in: path
+        name: idUser
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegistroPracticas'
+        required: true
+      responses:
+        "200":
+          description: OK
+      security:
+      - Authorization: []
+      tags:
+      - fct-api-service
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/fct/login:
+    get:
+      description: Método que devuelve un usuario que coincida con el username y la
+        contraseña pasadas por parámetros
+      operationId: login
+      parameters:
+      - explode: true
+        in: query
+        name: username
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: password
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Usuario'
+          description: OK
+      security:
+      - Authorization: []
+      summary: Login de usuario
+      tags:
+      - fct-api-service
+      x-accepts:
+      - '*/*'
+  /api/fct/detail/{idUser}:
+    get:
+      operationId: getDetail
+      parameters:
+      - explode: false
+        in: path
+        name: idUser
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                items:
+                  $ref: '#/components/schemas/RegistroPracticas'
+                type: array
+          description: OK
+      security:
+      - Authorization: []
+      tags:
+      - fct-api-service
+      x-accepts:
+      - '*/*'
+  /api/fct/detail/alumno/{idUser}:
+    get:
+      operationId: getDatosAlumno
+      parameters:
+      - explode: false
+        in: path
+        name: idUser
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Alumno'
+          description: OK
+      security:
+      - Authorization: []
+      tags:
+      - fct-api-service
+      x-accepts:
+      - '*/*'
+components:
+  schemas:
+    ChangePasswordRequest:
+      example:
+        oldPassword: oldPassword
+        newPassword: newPassword
+        userId: 0
+      properties:
+        userId:
+          format: int32
+          type: integer
+        oldPassword:
+          maxLength: 100
+          minLength: 8
+          type: string
+        newPassword:
+          maxLength: 100
+          minLength: 8
+          type: string
+      required:
+      - newPassword
+      - oldPassword
+      - userId
+    Alumno:
+      example:
+        ciclo: DAM
+        evaluacion: Marzo
+        registrosPracticas:
+        - descripcion: descripcion
+          fecha:
+            fecha: 2000-01-23
+            evaluacion: Marzo
+            uuid: 7
+            año: 9
+          cantidadHoras: 2.8928613994015286
+          id: 2
+        - descripcion: descripcion
+          fecha:
+            fecha: 2000-01-23
+            evaluacion: Marzo
+            uuid: 7
+            año: 9
+          cantidadHoras: 2.8928613994015286
+          id: 2
+        id: 6
+        nombreCompleto: nombreCompleto
+        empresa:
+          id: 5
+          nombreEmpresa: nombreEmpresa
+          activo: true
+        año: 1
+        tutor:
+          id: 5
+          nombreCompleto: nombreCompleto
+          activo: true
+      properties:
+        id:
+          format: int32
+          type: integer
+        nombreCompleto:
+          maxLength: 100
+          minLength: 6
+          type: string
+        ciclo:
+          enum:
+          - DAM
+          - DAW
+          - ASIR
+          type: string
+        evaluacion:
+          enum:
+          - Marzo
+          - Septiembre
+          type: string
+        año:
+          format: int32
+          type: integer
+        tutor:
+          $ref: '#/components/schemas/Tutor'
+        empresa:
+          $ref: '#/components/schemas/Empresa'
+        registrosPracticas:
+          items:
+            $ref: '#/components/schemas/RegistroPracticas'
+          type: array
+      required:
+      - nombreCompleto
+    Empresa:
+      example:
+        id: 5
+        nombreEmpresa: nombreEmpresa
+        activo: true
+      properties:
+        id:
+          format: int32
+          type: integer
+        nombreEmpresa:
+          maxLength: 50
+          minLength: 4
+          type: string
+        activo:
+          type: boolean
+      required:
+      - nombreEmpresa
+    Fecha:
+      example:
+        fecha: 2000-01-23
+        evaluacion: Marzo
+        uuid: 7
+        año: 9
+      properties:
+        uuid:
+          format: int32
+          type: integer
+        fecha:
+          format: date
+          type: string
+        año:
+          format: int32
+          type: integer
+        evaluacion:
+          enum:
+          - Marzo
+          - Septiembre
+          type: string
+    RegistroPracticas:
+      example:
+        descripcion: descripcion
+        fecha:
+          fecha: 2000-01-23
+          evaluacion: Marzo
+          uuid: 7
+          año: 9
+        cantidadHoras: 2.8928613994015286
+        id: 2
+      properties:
+        id:
+          format: int32
+          type: integer
+        fecha:
+          $ref: '#/components/schemas/Fecha'
+        cantidadHoras:
+          format: double
+          maximum: 8
+          minimum: 0
+          type: number
+        descripcion:
+          maxLength: 200
+          minLength: 0
+          type: string
+      required:
+      - descripcion
+    Tutor:
+      example:
+        id: 5
+        nombreCompleto: nombreCompleto
+        activo: true
+      properties:
+        id:
+          format: int32
+          type: integer
+        nombreCompleto:
+          maxLength: 100
+          minLength: 6
+          type: string
+        activo:
+          type: boolean
+      required:
+      - nombreCompleto
+    Usuario:
+      example:
+        alumno:
+          ciclo: DAM
+          evaluacion: Marzo
+          registrosPracticas:
+          - descripcion: descripcion
+            fecha:
+              fecha: 2000-01-23
+              evaluacion: Marzo
+              uuid: 7
+              año: 9
+            cantidadHoras: 2.8928613994015286
+            id: 2
+          - descripcion: descripcion
+            fecha:
+              fecha: 2000-01-23
+              evaluacion: Marzo
+              uuid: 7
+              año: 9
+            cantidadHoras: 2.8928613994015286
+            id: 2
+          id: 6
+          nombreCompleto: nombreCompleto
+          empresa:
+            id: 5
+            nombreEmpresa: nombreEmpresa
+            activo: true
+          año: 1
+          tutor:
+            id: 5
+            nombreCompleto: nombreCompleto
+            activo: true
+        id: 0
+        nombreUsuario: nombreUsuario
+        contraseña: contraseña
+        tutor:
+          id: 5
+          nombreCompleto: nombreCompleto
+          activo: true
+        activo: true
+      properties:
+        id:
+          format: int32
+          type: integer
+        nombreUsuario:
+          maxLength: 50
+          minLength: 6
+          type: string
+        contraseña:
+          type: string
+        alumno:
+          $ref: '#/components/schemas/Alumno'
+        tutor:
+          $ref: '#/components/schemas/Tutor'
+        activo:
+          type: boolean
+      required:
+      - nombreUsuario
+  securitySchemes:
+    Authorization:
+      in: header
+      name: API-KEY
+      type: apiKey
+
