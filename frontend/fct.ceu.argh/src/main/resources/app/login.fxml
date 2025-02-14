@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="600.0" style="-fx-background-color: #B2D8FF;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectoFront.gui.LoginController">
+   <children>
+      <Circle fill="#ffb3a7" layoutX="195.0" layoutY="188.0" radius="146.0" stroke="BLACK" strokeType="INSIDE" />
+      <TextField fx:id="textUser" layoutX="159.0" layoutY="147.0" promptText="Nombre Usuario" />
+      <Text layoutX="82.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario" wrappingWidth="41.341796875" />
+      <Text layoutX="82.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña" wrappingWidth="61.341796875" />
+      <PasswordField fx:id="textContra" layoutX="159.0" layoutY="192.0" />
+      <Button fx:id="entrarUsuarioButton" layoutX="153.0" layoutY="266.0" mnemonicParsing="false" onAction="#cambiarInfoUsuario" prefHeight="39.0" prefWidth="84.0" style="-fx-background-image: url(&quot;/images/enterButton.png&quot;); -fx-background-size: cover; -fx-background-radius: 50px;" />
+      <ImageView fitHeight="260.0" fitWidth="292.0" layoutX="308.0" layoutY="231.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/ceuLogo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

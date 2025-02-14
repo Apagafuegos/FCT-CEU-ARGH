@@ -1,0 +1,21 @@
+/* Estilo para el StackPane */
+.stack-pane {
+  -fx-background-radius: 30px; /* Ajusta el radio según tus necesidades */
+  -fx-background-color: #4f4f4f; /* Color de fondo del StackPane */
+  -fx-background-clip: padding; /* Recorta cualquier contenido que sobresalga */
+
+  /* Aplicando el efecto de neón */
+  -fx-effect: dropshadow(
+    gaussian,
+    #00ff00,
+    10,
+    0,
+    0,
+    0
+  ); /* Efecto neón verde */
+}
+
+/* Estilo para el AnchorPane */
+.anchor-pane {
+  -fx-background-color: transparent; /* Fondo transparente para el AnchorPane */
+}
