@@ -5,6 +5,7 @@ import java.util.List;
 import com.arg.fct.model.enums.Ciclo;
 import com.arg.fct.model.enums.Evaluacion;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -16,6 +17,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Alumno {
@@ -24,6 +28,9 @@ public class Alumno {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
+	@NotNull
+	@NotBlank
+	@Size(min = 6, max = 100)
 	private String nombreCompleto;
 
 	@Enumerated(EnumType.STRING)
@@ -43,7 +50,7 @@ public class Alumno {
 	@JoinColumn(name = "id_empresa")
 	private Empresa empresa;
 
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_alumno")
 	private List<RegistroPracticas> registrosPracticas;
 

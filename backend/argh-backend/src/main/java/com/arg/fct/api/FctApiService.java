@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.arg.fct.model.Alumno;
 import com.arg.fct.model.RegistroPracticas;
 import com.arg.fct.model.Usuario;
-import com.arg.fct.service.IncorrectPasswordException;
 import com.arg.fct.service.UsuariosService;
+import com.arg.fct.service.exceptions.IncorrectPasswordException;
 import com.arg.fct.service.exceptions.UserNotAuthorisedException;
 import com.arg.fct.service.exceptions.UsuarioNotFoundException;
 import com.arg.fct.service.exceptions.UsuariosServiceException;
@@ -47,15 +48,22 @@ public class FctApiService {
 		return service.changePassword(request.getUserId(), request.getOldPassword(), request.getNewPassword());
 	}
 
-	@GetMapping("/detail/{id}")
-	public List<RegistroPracticas> getDetail(@Valid @PathVariable Integer id)
+	@GetMapping("/detail/{idUser}")
+	public List<RegistroPracticas> getDetail(@Valid @PathVariable Integer idUser)
 			throws UsuariosServiceException, UserNotAuthorisedException {
-		return service.getRegistrosPracticas(id);
+		return service.getRegistrosPracticas(idUser);
 	}
 
 	@GetMapping("/detail/alumno/{idUser}")
 	public Alumno getDatosAlumno(@PathVariable @Valid Integer idUser)
 			throws UsuariosServiceException, UserNotAuthorisedException {
 		return service.getDatosAlumno(idUser);
+	}
+
+	@PostMapping("/registro/{idUser}")
+	public void addRegistroPracticas(@PathVariable @Valid Integer idUser,
+			@RequestBody @Valid RegistroPracticas registro)
+			throws UsuariosServiceException, UserNotAuthorisedException {
+		service.addRegistroPracticas(idUser, registro);
 	}
 }

@@ -2,8 +2,13 @@ package com.arg.fct.model;
 
 import java.time.LocalDate;
 
+import com.arg.fct.model.enums.Evaluacion;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -16,17 +21,22 @@ public class Fecha {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
-	private String uuid;
+	private Integer uuid;
+	
+	@JsonFormat(pattern = "dd-MM-yyyy")
 	private LocalDate fecha;
+	
 	@Column(name = "anio")
 	private int año;
-	private String evaluacion;
+	
+	@Enumerated(EnumType.STRING)
+	private Evaluacion evaluacion;
 
-	public String getUuid() {
+	public Integer getUuid() {
 		return uuid;
 	}
 
-	public void setUuid(String uuid) {
+	public void setUuid(Integer uuid) {
 		this.uuid = uuid;
 	}
 
@@ -46,11 +56,18 @@ public class Fecha {
 		this.año = año;
 	}
 
-	public String getEvaluacion() {
+	public Evaluacion getEvaluacion() {
 		return evaluacion;
 	}
 
-	public void setEvaluacion(String evaluacion) {
+	public void setEvaluacion(Evaluacion evaluacion) {
 		this.evaluacion = evaluacion;
 	}
+
+	@Override
+	public String toString() {
+		return "Fecha [uuid=" + uuid + ", fecha=" + fecha + ", año=" + año + ", evaluacion=" + evaluacion + "]";
+	}
+	
+	
 }

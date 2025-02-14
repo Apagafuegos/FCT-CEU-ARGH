@@ -1,4 +1,4 @@
-package com.arg.fct.service;
+package com.arg.fct.service.exceptions;
 
 public class IncorrectPasswordException extends Exception {
 

@@ -5,6 +5,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Empresa {
@@ -14,6 +17,9 @@ public class Empresa {
 	private Integer id;
 
 	@Column(name = "nombre")
+	@NotNull
+	@NotBlank
+	@Size(min = 4, max = 50)
 	private String nombreEmpresa;
 
 	private boolean activo;

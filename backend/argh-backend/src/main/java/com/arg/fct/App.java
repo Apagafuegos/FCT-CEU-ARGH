@@ -2,13 +2,6 @@ package com.arg.fct;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
-
-import com.arg.fct.model.Usuario;
-import com.arg.fct.service.IncorrectPasswordException;
-import com.arg.fct.service.UsuariosService;
-import com.arg.fct.service.exceptions.UsuarioNotFoundException;
-import com.arg.fct.service.exceptions.UsuariosServiceException;
 
 @SpringBootApplication
 public class App {
