@@ -51,7 +51,7 @@ public class Alumno {
 	private Empresa empresa;
 
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_alumno")
+	@JoinColumn(name = "id_alumno", nullable = false)
 	private List<RegistroPracticas> registrosPracticas;
 
 	public Integer getId() {
