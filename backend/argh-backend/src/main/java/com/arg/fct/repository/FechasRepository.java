@@ -5,9 +5,10 @@ import org.springframework.stereotype.Repository;
 
 import com.arg.fct.model.Fecha;
 import java.util.List;
+import java.util.Optional;
 import java.time.LocalDate;
 
 @Repository
 public interface FechasRepository extends JpaRepository<Fecha, Integer> {
-	List<Fecha> findOneByFecha(LocalDate fecha);
+	Optional<Fecha> findOneByFecha(LocalDate fecha);
 }
