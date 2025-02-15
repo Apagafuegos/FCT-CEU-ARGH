@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 import proyectoFront.App;
 
 public class AppController {
-	
+
 	public static final String FXML_INICIO = "/app/inicio.fxml";
 	public static final String FXML_LOGIN = "/app/login.fxml";
 	public static final String FXML_MENU = "/app/menu.fxml";
@@ -24,23 +24,22 @@ public class AppController {
 	public static final String FXML_REGISTROS = "/app/registro.fxml";
 	public static final String FXML_ALTA_REGISTROS = "/app/altaRegistro.fxml";
 	public static final String FXML_INFO_ALUMNO = "/app/infoAlumno.fxml";
-	
+
 	protected static Stage primaryStage;
-	
+
 	private Usuario user;
-	
-	
+
 	private FctApiServiceApi api;
-	
+
 	public AppController() {
 		user = new Usuario();
-		api = new FctApiServiceApi();
 	}
 
 	public AppController(Stage stage) {
 		primaryStage = stage;
 
 	}
+
 	public Parent loadScene(String fxml) {
 		try {
 			FXMLLoader loader = new FXMLLoader(App.class.getResource(fxml));
@@ -52,7 +51,6 @@ public class AppController {
 		}
 
 	}
-	
 
 	public void changeScene(String fxml) {
 		try {
@@ -77,20 +75,15 @@ public class AppController {
 		Map<String, Object> mapa = (Map<String, Object>) primaryStage.getUserData();
 		return mapa.get(key);
 	}
-	
-	
-	public Usuario login(String pass, String username) {
+
+	/*public Usuario login(String pass, String username) {
 		try {
 			String cifrado = DigestUtils.sha256Hex(pass);
 			user = api.login(username, cifrado);
 		} catch (ApiException e) {
 			e.printStackTrace();
-		}
+		} Aqui no, porfa, sacalo a un metodo en el controller
 		return user;
-	}
-	
-
+	}*/
 
 }
-
-
