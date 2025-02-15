@@ -245,7 +245,7 @@ public class JSON {
         private DateTimeFormatter formatter;
 
         public LocalDateTypeAdapter() {
-            this(DateTimeFormatter.ISO_LOCAL_DATE);
+            this(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
         }
 
         public LocalDateTypeAdapter(DateTimeFormatter formatter) {
