@@ -26,6 +26,7 @@ public class LoginController extends AppController {
     
     @FXML
     void cambiarInfoUsuario(ActionEvent event) {
+    	login(textContra.getText(), textUser.getText());
     	changeScene(FXML_MENU);
 
     }
