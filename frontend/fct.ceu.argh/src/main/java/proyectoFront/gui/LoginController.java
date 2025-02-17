@@ -42,7 +42,9 @@ public class LoginController extends AppController {
 	@FXML
 	void cambiarInfoUsuario(ActionEvent event) {
 		//habias puesto al reves usuario y contraseña
-		if (login(textUser.getText(), textContra.getText()) != null) {
+		Usuario user = login(textUser.getText(), textContra.getText());
+		if (user != null) {
+			addParam("usuario", user);
 			changeScene(FXML_MENU);
 		} else {
 			// enseña popup si el user es null
