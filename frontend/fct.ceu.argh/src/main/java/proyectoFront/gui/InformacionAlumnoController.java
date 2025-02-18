@@ -1,54 +1,62 @@
 package proyectoFront.gui;
 
-import java.util.Iterator;
-
+import org.openapitools.client.model.Alumno;
+import org.openapitools.client.model.RegistroPracticas;
 import org.openapitools.client.model.Usuario;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
-public class InformacionAlumnoController extends AppController{
-	
-    @FXML
-    private TextField textoAnyoCurso;
+public class InformacionAlumnoController extends AppController {
 
-    @FXML
-    private TextField textoCiclo;
+	@FXML
+	private TextField textoAnyoCurso;
 
-    @FXML
-    private TextField textoEmpresa;
+	@FXML
+	private TextField textoCiclo;
 
-    @FXML
-    private TextField textoEvaluacion;
+	@FXML
+	private TextField textoEmpresa;
 
-    @FXML
-    private TextField textoHRealizadas;
+	@FXML
+	private TextField textoEvaluacion;
 
-    @FXML
-    private TextField textoHRealizar;
+	@FXML
+	private TextField textoHRealizadas;
 
-    @FXML
-    private TextField textoHorasPendientes;
+	@FXML
+	private TextField textoHRealizar;
 
-    @FXML
-    private TextField textoNombre;
+	@FXML
+	private TextField textoHorasPendientes;
 
-    @FXML
-    private TextField textoTutor;
-    public void initialize() {
-    	Usuario user = (Usuario) getParam("usuario");
-    	textoAnyoCurso.setText(user.getAlumno().getAño().toString());
-    	textoCiclo.setText(user.getAlumno().getCiclo().getValue());
-    	textoEmpresa.setText(user.getAlumno().getEmpresa().getNombreEmpresa());
-    	textoEvaluacion.setText(user.getAlumno().getEvaluacion().getValue());
-    	Double v = 0.0;
-    	for (int i = 0; i < user.getAlumno().getRegistrosPracticas().size(); i++) {
-			v = v + user.getAlumno().getRegistrosPracticas().get(i).getCantidadHoras();
+	@FXML
+	private TextField textoNombre;
+
+	@FXML
+	private TextField textoTutor;
+
+	public void initialize() {
+		Usuario user = (Usuario) getParam("usuario");
+		Alumno alumno = user.getAlumno();
+		addParam("alumno", alumno);
+
+		textoAnyoCurso.setText(alumno.getAño().toString());
+		textoCiclo.setText(alumno.getCiclo().getValue());
+		textoEmpresa.setText(alumno.getEmpresa().getNombreEmpresa());
+		textoEvaluacion.setText(alumno.getEvaluacion().getValue());
+
+		double cantidadHorasAlumno = 0D;
+		for (RegistroPracticas registro : alumno.getRegistrosPracticas()) {
+			cantidadHorasAlumno += registro.getCantidadHoras();
 		}
-    	textoHRealizadas.setText(v +"");
-    	
-    	textoNombre.setText(user.getAlumno().getNombreCompleto());
-    	textoTutor.setText(user.getTutor().getNombreCompleto());
-    	
-    }
+
+		textoHRealizar.setText("370");
+		textoHRealizadas.setText(Double.toString(cantidadHorasAlumno));
+		textoHorasPendientes.setText(Double.toString(370D - cantidadHorasAlumno));
+
+		textoNombre.setText(user.getAlumno().getNombreCompleto());
+		textoTutor.setText(user.getAlumno().getTutor().getNombreCompleto());
+
+	}
 }

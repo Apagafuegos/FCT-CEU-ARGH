@@ -9,13 +9,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #B2D8FF;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectoFront.gui.RegistrosController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="834.0" style="-fx-background-color: #B2D8FF;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectoFront.gui.RegistrosController">
    <children>
-      <TableView layoutX="256.0" layoutY="14.0" prefHeight="360.0" prefWidth="330.0">
+      <TableView fx:id="tablaRegistros" layoutX="256.0" layoutY="14.0" prefHeight="532.0" prefWidth="553.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Fecha" />
-          <TableColumn prefWidth="75.0" text="Horas Registradas" />
-            <TableColumn prefWidth="179.0" text="Descripcion" />
+          <TableColumn fx:id="columnaFecha" prefWidth="75.0" text="Fecha" />
+          <TableColumn fx:id="columnaHoras" prefWidth="75.0" text="Horas Registradas" />
+            <TableColumn fx:id="columnaDescripcion" prefWidth="179.0" text="Descripcion" />
         </columns>
       </TableView>
       <Text layoutX="31.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONSULTA">
@@ -23,21 +23,21 @@
             <Font name="Comic Sans MS Bold Italic" size="37.0" />
          </font>
       </Text>
-      <DatePicker layoutX="48.0" layoutY="175.0" />
+      <DatePicker fx:id="pickerDesde" layoutX="48.0" layoutY="175.0" />
       <Text layoutX="101.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DESDE">
          <font>
             <Font name="Comic Sans MS Bold Italic" size="20.0" />
          </font>
       </Text>
-      <DatePicker layoutX="48.0" layoutY="257.0" />
+      <DatePicker fx:id="pickerHasta" layoutX="48.0" layoutY="257.0" />
       <Text layoutX="99.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HASTA">
          <font>
             <Font name="Comic Sans MS Bold Italic" size="20.0" />
          </font>
       </Text>
-      <CheckBox layoutX="48.0" layoutY="290.0" mnemonicParsing="false" text="Fecha completa" />
-      <CheckBox layoutX="48.0" layoutY="316.0" mnemonicParsing="false" text="Fecha sin completar" />
-      <CheckBox layoutX="48.0" layoutY="341.0" mnemonicParsing="false" text="Todas" />
-      <Button layoutX="101.0" layoutY="362.0" mnemonicParsing="false" text="Consulta" />
+      <CheckBox fx:id="checkCompleta" layoutX="48.0" layoutY="290.0" mnemonicParsing="false" text="Fecha completa" />
+      <CheckBox fx:id="checkNoCompleta" layoutX="48.0" layoutY="316.0" mnemonicParsing="false" text="Fecha sin completar" />
+      <CheckBox fx:id="checkTodo" layoutX="48.0" layoutY="341.0" mnemonicParsing="false" text="Todas" />
+      <Button fx:id="botonConsulta" layoutX="101.0" layoutY="362.0" mnemonicParsing="false" text="Consulta" />
    </children>
 </AnchorPane>

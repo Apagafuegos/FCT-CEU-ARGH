@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javafx.scene.control.Alert;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.api.FctApiServiceApi;
@@ -76,14 +77,11 @@ public class AppController {
 		return mapa.get(key);
 	}
 
-	/*public Usuario login(String pass, String username) {
-		try {
-			String cifrado = DigestUtils.sha256Hex(pass);
-			user = api.login(username, cifrado);
-		} catch (ApiException e) {
-			e.printStackTrace();
-		} Aqui no, porfa, sacalo a un metodo en el controller
-		return user;
-	}*/
+	public void showAlert(String message){
+		Alert alert = new Alert(Alert.AlertType.INFORMATION);
+		alert.setTitle("Error");
+		alert.setContentText(message);
+		alert.showAndWait();
+	}
 
 }

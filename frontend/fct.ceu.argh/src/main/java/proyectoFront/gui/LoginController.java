@@ -41,32 +41,25 @@ public class LoginController extends AppController {
 
 	@FXML
 	void cambiarInfoUsuario(ActionEvent event) {
-		//habias puesto al reves usuario y contraseña
-		Usuario user = login(textUser.getText(), textContra.getText());
-		if (user != null) {
+		Usuario user = null;
+		try {
+			user = login(textUser.getText(), textContra.getText());
 			addParam("usuario", user);
 			changeScene(FXML_MENU);
-		} else {
-			// enseña popup si el user es null
+		} catch (ApiException e) {
+			showAlert("Usuario o contraseña incorrectos");
 		}
 
 	}
 
-	public Usuario login(String username, String password) {
+	public Usuario login(String username, String password) throws ApiException {
 		password = DigestUtils.sha256Hex(password);
-		System.out.println(username + " " + password);
-		try {
-			return api.login(username, password);
-		} catch (ApiException e) {
-			e.printStackTrace();
-			return null;
-		}
+		return api.login(username, password);
 	}
 
 	@FXML
 	void cerrarPestaña(ActionEvent event) {
 		Platform.exit();
-
 	}
 
 	@FXML

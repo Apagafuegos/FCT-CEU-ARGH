@@ -12,10 +12,10 @@ public class App extends Application{
 		
 		controller.changeScene(AppController.FXML_INICIO);
 		
-		primaryStage.setResizable(false);
+		primaryStage.setResizable(true);
 		primaryStage.initStyle(javafx.stage.StageStyle.TRANSPARENT);
-		primaryStage.setWidth(600);
-		primaryStage.setHeight(500);
+		primaryStage.setWidth(700);
+		primaryStage.setHeight(600);
 		primaryStage.show();
 	}
 	
