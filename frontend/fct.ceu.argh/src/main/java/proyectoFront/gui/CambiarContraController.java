@@ -13,36 +13,33 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class CambiarContraController extends AppController {
-	
-	private  FctApiServiceApi api;
 
-    @FXML
-    private Button buttonContra;
+	private FctApiServiceApi api = (FctApiServiceApi) getParam("apiServicio");
 
-    @FXML
-    private TextField textNexContra;
+	@FXML
+	private Button buttonContra;
 
-    @FXML
-    private TextField textRepeatContra;
+	@FXML
+	private TextField antiguaField;
 
-    @FXML
-    void confirmarContra(ActionEvent event) {
-    	Usuario user = (Usuario) getParam("usuario");
-    	ChangePasswordRequest req = new ChangePasswordRequest();
-    	String contra =  DigestUtils.sha256Hex(textNexContra.getText());
-    	String contraDos =  DigestUtils.sha256Hex(textRepeatContra.getText());
+	@FXML
+	private TextField nuevaField;
 
-    	req.setNewPassword(contra);
-    	req.setUserId(user.getId());
-    	req.setOldPassword(contraDos);
-    		ApiClient client = (ApiClient) getParam("apiServicio");
-    		api = new FctApiServiceApi(client);
-    		try {
-				api.changePassword(req);
-			} catch (ApiException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-    }
+	@FXML
+	void confirmarContra(ActionEvent event) {
+		Usuario user = (Usuario) getParam("usuario");
+		ChangePasswordRequest req = new ChangePasswordRequest();
+		String contraseñaActual = DigestUtils.sha256Hex(antiguaField.getText());
+		String contraseñaNueva = DigestUtils.sha256Hex(nuevaField.getText());
+
+		req.setNewPassword(contraseñaNueva);
+		req.setUserId(user.getId());
+		req.setOldPassword(contraseñaActual);
+		try {
+			api.changePassword(req);
+		} catch (ApiException e) {
+			e.printStackTrace();
+		}
+	}
 
 }

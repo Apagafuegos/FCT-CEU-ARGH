@@ -14,8 +14,8 @@ public class App extends Application{
 		
 		primaryStage.setResizable(true);
 		primaryStage.initStyle(javafx.stage.StageStyle.TRANSPARENT);
-		primaryStage.setWidth(700);
-		primaryStage.setHeight(600);
+		primaryStage.setWidth(800);
+		primaryStage.setHeight(700);
 		primaryStage.show();
 	}
 	

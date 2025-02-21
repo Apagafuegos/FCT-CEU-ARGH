@@ -36,7 +36,7 @@ public class LoginController extends AppController {
 		apiClient.setBasePath("http://localhost:8080");
 		apiClient.setApiKey("EghAcof");
 		api = new FctApiServiceApi(apiClient);
-		addParam("apiServicio", apiClient); // para poder acceder en otras pantallas
+		addParam("apiServicio", api); // para poder acceder en otras pantallas
 	}
 
 	@FXML

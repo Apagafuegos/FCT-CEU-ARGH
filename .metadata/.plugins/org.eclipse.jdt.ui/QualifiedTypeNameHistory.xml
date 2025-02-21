@@ -9,7 +9,6 @@
     <fullyQualifiedTypeName name="javafx.scene.control.Button"/>
     <fullyQualifiedTypeName name="javafx.scene.control.MenuItem"/>
     <fullyQualifiedTypeName name="proyectoFront.gui.MenuController"/>
-    <fullyQualifiedTypeName name="javafx.event.ActionEvent"/>
     <fullyQualifiedTypeName name="java.lang.classfile.ClassFile.Option"/>
     <fullyQualifiedTypeName name="java.util.Optional"/>
     <fullyQualifiedTypeName name="javafx.scene.control.ButtonType"/>
@@ -17,8 +16,15 @@
     <fullyQualifiedTypeName name="proyectoFront.gui.AppController"/>
     <fullyQualifiedTypeName name="javafx.scene.control.TextField"/>
     <fullyQualifiedTypeName name="javafx.fxml.FXML"/>
-    <fullyQualifiedTypeName name="org.openapitools.client.model.Usuario"/>
     <fullyQualifiedTypeName name="org.openapitools.client.ApiClient"/>
-    <fullyQualifiedTypeName name="org.openapitools.client.api.FctApiServiceApi"/>
     <fullyQualifiedTypeName name="org.openapitools.client.model.ChangePasswordRequest"/>
+    <fullyQualifiedTypeName name="javafx.scene.control.ComboBox"/>
+    <fullyQualifiedTypeName name="javafx.event.ActionEvent"/>
+    <fullyQualifiedTypeName name="java.awt.Checkbox"/>
+    <fullyQualifiedTypeName name="javafx.scene.control.SpinnerValueFactory"/>
+    <fullyQualifiedTypeName name="javafx.scene.control.SpinnerValueFactory.DoubleSpinnerValueFactory"/>
+    <fullyQualifiedTypeName name="org.openapitools.client.api.FctApiServiceApi"/>
+    <fullyQualifiedTypeName name="org.openapitools.client.model.Usuario"/>
+    <fullyQualifiedTypeName name="org.openapitools.client.model.RegistroPracticas"/>
+    <fullyQualifiedTypeName name="org.openapitools.client.model.Fecha"/>
 </qualifiedTypeNameHistroy>
