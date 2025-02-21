@@ -129,9 +129,9 @@ public class Alumno {
    */
   @JsonAdapter(EvaluacionEnum.Adapter.class)
   public enum EvaluacionEnum {
-    MARZO("Marzo"),
+    MARZO("MARZO"),
     
-    SEPTIEMBRE("Septiembre");
+    SEPTIEMBRE("SEPTIEMBRE");
 
     private String value;
 
@@ -154,7 +154,7 @@ public class Alumno {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      throw new IllegalArgumentException("Unexpected value '" + value + "' for values " + Arrays.toString(EvaluacionEnum.values()));
     }
 
     public static class Adapter extends TypeAdapter<EvaluacionEnum> {

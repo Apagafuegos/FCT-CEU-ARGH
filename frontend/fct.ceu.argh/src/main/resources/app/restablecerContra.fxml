@@ -10,11 +10,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="600.0" style="-fx-background-color: #B2D8FF;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectoFront.gui.CambiarContraController">
    <children>
-      <Text layoutX="164.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña nueva" />
-      <Text layoutX="164.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Repetir contraseña" />
+      <Text layoutX="164.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña ANTIGUA" />
+      <Text layoutX="164.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña NUEVA" />
       <Button fx:id="buttonContra" layoutX="263.0" layoutY="367.0" mnemonicParsing="false" onAction="#confirmarContra" prefHeight="53.0" prefWidth="125.0" style="-fx-background-image: url(&quot;/images/cambiarButton.png&quot;); -fx-background-size: cover; -fx-background-radius: 50px;" />
-      <TextField fx:id="textNexContra" layoutX="288.0" layoutY="235.0" />
-      <TextField fx:id="textRepeatContra" layoutX="288.0" layoutY="278.0" />
+      <TextField fx:id="antiguaField" layoutX="288.0" layoutY="235.0" />
+      <TextField fx:id="nuevaField" layoutX="288.0" layoutY="278.0" />
       <ImageView fitHeight="240.0" fitWidth="319.0" layoutX="-18.0" layoutY="-46.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/ceuLogo.png" />

@@ -18,9 +18,11 @@ import okhttp3.internal.http.HttpMethod;
 import okhttp3.internal.tls.OkHostnameVerifier;
 import okhttp3.logging.HttpLoggingInterceptor;
 import okhttp3.logging.HttpLoggingInterceptor.Level;
-import okio.Buffer;
 import okio.BufferedSink;
 import okio.Okio;
+import org.openapitools.client.auth.ApiKeyAuth;
+import org.openapitools.client.auth.Authentication;
+import org.openapitools.client.auth.HttpBasicAuth;
 
 import javax.net.ssl.*;
 import java.io.File;
@@ -31,6 +33,7 @@ import java.lang.reflect.Type;
 import java.net.URI;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.nio.Buffer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.GeneralSecurityException;
@@ -39,7 +42,6 @@ import java.security.SecureRandom;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
-import java.security.cert.X509Certificate;
 import java.text.DateFormat;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -47,14 +49,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
-import java.util.function.Supplier;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.openapitools.client.auth.Authentication;
-import org.openapitools.client.auth.HttpBasicAuth;
-import org.openapitools.client.auth.HttpBearerAuth;
-import org.openapitools.client.auth.ApiKeyAuth;
 
 /**
  * <p>ApiClient class.</p>
@@ -1575,7 +1571,7 @@ public class ApiClient {
     private String requestBodyToString(RequestBody requestBody) throws ApiException {
         if (requestBody != null) {
             try {
-                final Buffer buffer = new Buffer();
+                final okio.Buffer buffer = new okio.Buffer();
                 requestBody.writeTo(buffer);
                 return buffer.readUtf8();
             } catch (final IOException e) {

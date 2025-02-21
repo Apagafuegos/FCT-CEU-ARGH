@@ -4,6 +4,12 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javafx.scene.control.Alert;
+import org.apache.commons.codec.digest.DigestUtils;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.api.FctApiServiceApi;
+import org.openapitools.client.model.Usuario;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,7 +17,7 @@ import javafx.stage.Stage;
 import proyectoFront.App;
 
 public class AppController {
-	
+
 	public static final String FXML_INICIO = "/app/inicio.fxml";
 	public static final String FXML_LOGIN = "/app/login.fxml";
 	public static final String FXML_MENU = "/app/menu.fxml";
@@ -19,16 +25,22 @@ public class AppController {
 	public static final String FXML_REGISTROS = "/app/registro.fxml";
 	public static final String FXML_ALTA_REGISTROS = "/app/altaRegistro.fxml";
 	public static final String FXML_INFO_ALUMNO = "/app/infoAlumno.fxml";
-	
+
 	protected static Stage primaryStage;
-	
+
+	private Usuario user;
+
+	private FctApiServiceApi api;
+
 	public AppController() {
+		user = new Usuario();
 	}
 
 	public AppController(Stage stage) {
 		primaryStage = stage;
 
 	}
+
 	public Parent loadScene(String fxml) {
 		try {
 			FXMLLoader loader = new FXMLLoader(App.class.getResource(fxml));
@@ -64,9 +76,12 @@ public class AppController {
 		Map<String, Object> mapa = (Map<String, Object>) primaryStage.getUserData();
 		return mapa.get(key);
 	}
-	
 
+	public void showAlert(String message){
+		Alert alert = new Alert(Alert.AlertType.INFORMATION);
+		alert.setTitle("Error");
+		alert.setContentText(message);
+		alert.showAndWait();
+	}
 
 }
-
-

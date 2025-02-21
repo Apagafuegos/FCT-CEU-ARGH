@@ -71,9 +71,9 @@ public class Fecha {
    */
   @JsonAdapter(EvaluacionEnum.Adapter.class)
   public enum EvaluacionEnum {
-    MARZO("Marzo"),
+    MARZO("MARZO"),
     
-    SEPTIEMBRE("Septiembre");
+    SEPTIEMBRE("SEPTIEMBRE");
 
     private String value;
 
