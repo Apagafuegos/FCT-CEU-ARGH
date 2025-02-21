@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import proyectoFront.AppConfig;
 
 public class LoginController extends AppController {
 	@FXML
@@ -32,9 +33,11 @@ public class LoginController extends AppController {
 	private FctApiServiceApi api;
 
 	public LoginController() {
+
 		ApiClient apiClient = new ApiClient();
-		apiClient.setBasePath("http://localhost:8080");
-		apiClient.setApiKey("EghAcof");
+		AppConfig config = AppConfig.getInstance();
+		apiClient.setBasePath(config.getApiUrl());
+		apiClient.setApiKey(config.getApiKey());
 		api = new FctApiServiceApi(apiClient);
 		addParam("apiServicio", api); // para poder acceder en otras pantallas
 	}

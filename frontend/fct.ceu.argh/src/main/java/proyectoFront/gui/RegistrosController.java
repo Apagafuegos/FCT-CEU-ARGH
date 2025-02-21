@@ -1,6 +1,5 @@
 package proyectoFront.gui;
 
-import java.awt.Checkbox;
 import java.util.List;
 
 import org.openapitools.client.model.Alumno;

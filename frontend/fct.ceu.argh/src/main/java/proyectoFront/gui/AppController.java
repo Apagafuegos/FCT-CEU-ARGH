@@ -4,15 +4,12 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import javafx.scene.control.Alert;
-import org.apache.commons.codec.digest.DigestUtils;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.api.FctApiServiceApi;
 import org.openapitools.client.model.Usuario;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import proyectoFront.App;
 
@@ -29,8 +26,6 @@ public class AppController {
 	protected static Stage primaryStage;
 
 	private Usuario user;
-
-	private FctApiServiceApi api;
 
 	public AppController() {
 		user = new Usuario();
@@ -77,7 +72,7 @@ public class AppController {
 		return mapa.get(key);
 	}
 
-	public void showAlert(String message){
+	public void showAlert(String message) {
 		Alert alert = new Alert(Alert.AlertType.INFORMATION);
 		alert.setTitle("Error");
 		alert.setContentText(message);

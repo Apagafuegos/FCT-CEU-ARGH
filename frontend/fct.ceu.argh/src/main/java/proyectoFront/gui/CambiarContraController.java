@@ -1,7 +1,6 @@
 package proyectoFront.gui;
 
 import org.apache.commons.codec.digest.DigestUtils;
-import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.api.FctApiServiceApi;
 import org.openapitools.client.model.ChangePasswordRequest;
