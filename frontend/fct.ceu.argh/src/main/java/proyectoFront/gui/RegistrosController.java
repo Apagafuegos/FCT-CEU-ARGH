@@ -19,6 +19,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
@@ -55,7 +56,8 @@ public class RegistrosController extends AppController {
 	private ObservableList<RegistroPracticas> datosTabla;
 	private Alumno alumno = (Alumno) getParam("alumno");
 
-	// Rango de fechas sin completar
+	// Como no tengo modo de tener las fechas sin completar, he puesto el rango de fechas de las practicas
+	// Comienzo y fin
 	private LocalDate fechaInicio = LocalDate.of(2025, 3, 3);
 	private LocalDate fechaFin = LocalDate.of(2025, 5, 30);
 
@@ -72,10 +74,29 @@ public class RegistrosController extends AppController {
 			Fecha fecha = cellData.getValue().getFecha();
 			return javafx.beans.binding.Bindings.createObjectBinding(() -> fecha != null ? fecha.getFecha() : null);
 		});
-
+		
 		datosTabla = FXCollections.observableArrayList();
 		tablaRegistros.setItems(datosTabla);
 		actualizarTabla();
+		
+		//Doble click
+	    tablaRegistros.setRowFactory(tv -> {
+	        TableRow<RegistroPracticas> row = new TableRow<>();
+	        row.setOnMouseClicked(event -> {
+	            if (event.getClickCount() == 2 && !row.isEmpty()) {
+	                RegistroPracticas registroSeleccionado = row.getItem();
+	                abrirDetalleRegistro(registroSeleccionado);
+	            }
+	        });
+	        return row;
+	    });
+		
+		
+	}
+	private void abrirDetalleRegistro(RegistroPracticas registro) {
+	    addParam("registro", registro);
+
+	    changeScene(FXML_REGISTRO_DETALLE);
 	}
 
 	private void actualizarTabla() {
@@ -158,7 +179,7 @@ public class RegistrosController extends AppController {
 
 		for (RegistroPracticas registro : registros) {
 			LocalDate fechaRegistro = registro.getFecha().getFecha();
-
+			//No debe ser ni null ni deben tener el orden cambiado
 			boolean cumpleDesde = (fechaDesde == null) || !fechaRegistro.isBefore(fechaDesde);
 			boolean cumpleHasta = (fechaHasta == null) || !fechaRegistro.isAfter(fechaHasta);
 

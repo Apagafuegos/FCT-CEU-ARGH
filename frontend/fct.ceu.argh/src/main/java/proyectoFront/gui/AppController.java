@@ -22,6 +22,7 @@ public class AppController {
 	public static final String FXML_REGISTROS = "/app/registro.fxml";
 	public static final String FXML_ALTA_REGISTROS = "/app/altaRegistro.fxml";
 	public static final String FXML_INFO_ALUMNO = "/app/infoAlumno.fxml";
+	public static final String FXML_REGISTRO_DETALLE = "/app/detalleRegistro.fxml";
 
 	protected static Stage primaryStage;
 
