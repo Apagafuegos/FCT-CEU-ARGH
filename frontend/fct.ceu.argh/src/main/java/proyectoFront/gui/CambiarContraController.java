@@ -8,21 +8,26 @@ import org.openapitools.client.model.Usuario;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.PasswordField;
 
 public class CambiarContraController extends AppController {
 
 	private FctApiServiceApi api = (FctApiServiceApi) getParam("apiServicio");
 
 	@FXML
+	private PasswordField antiguaField;
+
+	@FXML
 	private Button buttonContra;
 
 	@FXML
-	private TextField antiguaField;
+	private PasswordField nuevaField;
 
 	@FXML
-	private TextField nuevaField;
+	private PasswordField repeatContra;
 
 	@FXML
 	void confirmarContra(ActionEvent event) {
@@ -34,10 +39,38 @@ public class CambiarContraController extends AppController {
 		req.setNewPassword(contraseñaNueva);
 		req.setUserId(user.getId());
 		req.setOldPassword(contraseñaActual);
-		try {
-			api.changePassword(req);
-		} catch (ApiException e) {
-			e.printStackTrace();
+		if(nuevaField.getText().length() >=  8) {
+		
+		if (nuevaField.getText().equals(repeatContra.getText())) {
+
+			try {
+				api.changePassword(req);
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setHeaderText(null);
+				alert.setContentText("Se ha cambiado la contraseña con éxito");
+				alert.setTitle("Perfecto");
+				alert.showAndWait();
+			} catch (ApiException e) {
+				e.printStackTrace();
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.setHeaderText(null);
+				alert.setContentText("La contraseña introducia como actual no es correcta");
+				alert.setTitle("Error fatal");
+				alert.showAndWait();
+			}
+		} else {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setHeaderText(null);
+			alert.setContentText("Las contraseñas no coinciden");
+			alert.setTitle("Error fatal");
+			alert.showAndWait();
+		}
+		}else {
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setHeaderText(null);
+			alert.setContentText("La contraseña debe medir 8 dígitos o más");
+			alert.setTitle("Cuidao!");
+			alert.showAndWait();
 		}
 	}
 

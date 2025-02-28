@@ -35,7 +35,9 @@ public class LoginController extends AppController {
 	public LoginController() {
 
 		ApiClient apiClient = new ApiClient();
+
 		AppConfig config = AppConfig.getInstance();
+
 		apiClient.setBasePath(config.getApiUrl());
 		apiClient.setApiKey(config.getApiKey());
 		api = new FctApiServiceApi(apiClient);
