@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "f4d0f3ee-f2a7-4b50-9553-cad49ca3835c",
+		"name": "EghAcof",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39316703"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "key",
+							"value": "API-KEY",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "EghAcof",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/fct/login?username=csantos6952&password=438358ae9c6bdbea36268e75475735cb45692deb16317c8d69b0da53a72b96c7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fct",
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "csantos6952"
+						},
+						{
+							"key": "password",
+							"value": "438358ae9c6bdbea36268e75475735cb45692deb16317c8d69b0da53a72b96c7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "changePassword",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "key",
+							"value": "API-KEY",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "EghAcof",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\" : 1,\n    \"oldPassword\" : \"8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92\",\n    \"newPassword\" : \"438358ae9c6bdbea36268e75475735cb45692deb16317c8d69b0da53a72b96c7\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/fct",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getRegistrosPracticas",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "key",
+							"value": "API-KEY",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "EghAcof",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/fct/detail/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fct",
+						"detail",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getDetalleAlumno",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "key",
+							"value": "API-KEY",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "EghAcof",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/fct/detail/alumno/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fct",
+						"detail",
+						"alumno",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "saveRegistro",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "key",
+							"value": "API-KEY",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "EghAcof",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fecha\" : {\n        \"fecha\" : \"11-03-2025\",\n        \"año\" : 2025,\n        \"evaluacion\" : \"MARZO\"\n    },\n    \"cantidadHoras\" : 6.5,\n    \"descripcion\" : \"Mi tercer día en Tier1 viendo como Fran grita cghalogh\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/fct/registro/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fct",
+						"registro",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
