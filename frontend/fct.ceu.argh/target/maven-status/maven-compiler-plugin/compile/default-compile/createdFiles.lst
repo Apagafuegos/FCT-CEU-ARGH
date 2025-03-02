@@ -1,0 +1,13 @@
+proyectoFront\App.class
+proyectoFront\Launcher.class
+proyectoFront\gui\AltaRegistrosController.class
+proyectoFront\gui\BienvenidaController.class
+proyectoFront\gui\CambiarContraController.class
+proyectoFront\gui\DetalleRegistroController.class
+proyectoFront\gui\MenuController.class
+proyectoFront\gui\AppController.class
+proyectoFront\gui\InformacionAlumnoController.class
+proyectoFront\gui\LoginController.class
+proyectoFront\gui\AltaRegistrosController$1.class
+proyectoFront\gui\RegistrosController.class
+proyectoFront\AppConfig.class
